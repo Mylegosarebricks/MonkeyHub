@@ -1,0 +1,52 @@
+if game.PlaceId == 8998370421 then
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "MONKEY HUB | [Update] Anime Tap Simulator Clicker2", HidePremium = false, IntroText = "Monkey Hub", SaveConfig = true, ConfigFolder = "ATSConfig"})
+
+    --Values
+    _G.autoTap = true
+
+
+    --functions
+     
+    function autoTap()
+        while _G.autoTap == true do
+            workspace.Events.AddClick:FireServer()
+            wait(.00000000000000000000000000000000000000000000000000000000000000000000001)
+         end
+        end
+
+    --Tabs
+    local FarmTab = Window:MakeTab({
+        Name = "AutoFarm",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    local EggsTab = Window:MakeTab({
+        Name = "Eggs",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+    
+    local MiscTab = Window:MakeTab({
+        Name = "Misc",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+    
+    --Toogles
+    FarmTab:AddToggle({
+        Name = "Auto tap",
+        Default = false,
+        Callback = function(Value)
+            _G.autoTap = Value
+            autoTap()
+        end    
+    })
+
+
+    
+
+
+    end
+    OrionLib:Init()
